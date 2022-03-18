@@ -29,6 +29,12 @@ TfLiteRegistration* Register_NUMERIC_VERIFY_REF();
 TfLiteRegistration* Register_AUDIO_SPECTROGRAM();
 TfLiteRegistration* Register_MFCC();
 TfLiteRegistration* Register_DETECTION_POSTPROCESS();
+TfLiteRegistration* RegisterMaxPoolingWithArgmax2D();
+TfLiteRegistration* RegisterMaxUnpooling2D();
+TfLiteRegistration* RegisterConvolution2DTransposeBias();
+TfLiteRegistration* RegisterTransformTensorBilinear();
+TfLiteRegistration* RegisterTransformLandmarks();
+TfLiteRegistration* RegisterLandmarks2TransformMatrix();
 
 }  // namespace custom
 
@@ -499,6 +505,22 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
             tflite::ops::custom::Register_AUDIO_SPECTROGRAM());
   AddCustom("TFLite_Detection_PostProcess",
             tflite::ops::custom::Register_DETECTION_POSTPROCESS());
+
+  AddCustom("MaxPoolingWithArgmax2D",
+            tflite::ops::custom::RegisterMaxPoolingWithArgmax2D());
+  AddCustom("MaxUnpooling2D", tflite::ops::custom::RegisterMaxUnpooling2D());
+  AddCustom("Convolution2DTransposeBias",
+            tflite::ops::custom::RegisterConvolution2DTransposeBias());
+
+  AddCustom("TransformTensorBilinear",
+            tflite::ops::custom::RegisterTransformTensorBilinear(),
+            /*version=*/2);
+  AddCustom("TransformLandmarks",
+            tflite::ops::custom::RegisterTransformLandmarks(),
+            /*version=*/2);
+  AddCustom("Landmarks2TransformMatrix",
+            tflite::ops::custom::RegisterLandmarks2TransformMatrix(),
+            /*version=*/2);
 }
 
 }  // namespace builtin

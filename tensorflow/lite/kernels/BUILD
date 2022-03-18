@@ -693,9 +693,22 @@ BUILTIN_KERNEL_DEPS = [
 
 cc_library(
     name = "builtin_op_kernels",
-    srcs = BUILTIN_KERNEL_SRCS,
+    srcs = BUILTIN_KERNEL_SRCS + [
+        "landmarks_to_transform_matrix.cc",
+        "max_pool_argmax.cc",
+        "max_unpooling.cc",
+        "transform_landmarks.cc",
+        "transform_tensor_bilinear.cc",
+        "transpose_conv_bias.cc",
+    ],
     hdrs = [
         "dequantize.h",
+        "landmarks_to_transform_matrix.h",
+        "max_pool_argmax.h",
+        "max_unpooling.h",
+        "transform_landmarks.h",
+        "transform_tensor_bilinear.h",
+        "transpose_conv_bias.h",
     ],
     compatible_with = get_compatible_with_portable(),
     copts = tflite_copts() + tf_opts_nortti_if_android() + EXTRA_EIGEN_COPTS,

@@ -28,6 +28,12 @@ TfLiteRegistration* Register_NUMERIC_VERIFY();
 TfLiteRegistration* Register_AUDIO_SPECTROGRAM();
 TfLiteRegistration* Register_MFCC();
 TfLiteRegistration* Register_DETECTION_POSTPROCESS();
+TfLiteRegistration* RegisterMaxPoolingWithArgmax2D();
+TfLiteRegistration* RegisterMaxUnpooling2D();
+TfLiteRegistration* RegisterConvolution2DTransposeBias();
+TfLiteRegistration* RegisterTransformTensorBilinear();
+TfLiteRegistration* RegisterTransformLandmarks();
+TfLiteRegistration* RegisterLandmarks2TransformMatrix();
 
 }  // namespace custom
 
