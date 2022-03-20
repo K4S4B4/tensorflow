@@ -174,7 +174,7 @@ cc_library(
         "//tensorflow/lite/kernels:kernel_util",
         "//tensorflow/lite/kernels/internal:reference_base",
         "//tensorflow/lite/kernels/internal:tensor",
-    ] + tf_platform_alias("custom_parsers", "//tensorflow/lite/delegates/gpu/common/"),
+    ] + ["//tensorflow/lite/delegates/gpu/common/mediapipe:custom_parsers"],
 )
 
 cc_test(

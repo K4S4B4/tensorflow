@@ -29,7 +29,8 @@ namespace monitoring {
 void PercentileSamplerCell::Add(double sample) {
   uint64 nstime = EnvTime::NowNanos();
   mutex_lock l(mu_);
-  samples_[next_position_] = {nstime, sample};
+  samples_[next_position_].nstime = nstime;
+  samples_[next_position_].value = sample;
   ++next_position_;
   if (TF_PREDICT_FALSE(next_position_ >= samples_.size())) {
     next_position_ = 0;
@@ -73,7 +74,9 @@ Percentiles PercentileSamplerCell::value() const {
       size_t index = std::min<size_t>(
           static_cast<size_t>(percentile * pct_samples.num_samples / 100.0),
           pct_samples.num_samples - 1);
-      PercentilePoint pct = {percentile, samples[index].value};
+      PercentilePoint pct;
+      pct.percentile = percentile;
+      pct.value = samples[index].value;
       pct_samples.points.push_back(pct);
     }
   }

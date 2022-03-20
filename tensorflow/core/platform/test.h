@@ -40,7 +40,6 @@ limitations under the License.
 // better error messages, more maintainable tests and more test coverage.
 #if !defined(PLATFORM_GOOGLE) && !defined(PLATFORM_GOOGLE_ANDROID) && \
     !defined(PLATFORM_CHROMIUMOS)
-#include <gmock/gmock-generated-matchers.h>
 #include <gmock/gmock-matchers.h>
 #include <gmock/gmock-more-matchers.h>
 #endif

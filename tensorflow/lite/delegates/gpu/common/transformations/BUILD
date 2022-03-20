@@ -287,7 +287,7 @@ cc_library(
         ":merge_padding_with",
         ":remove_noop",
         "//tensorflow/lite/delegates/gpu/common:model_transformer",
-    ] + tf_platform_alias("custom_transformations", "//tensorflow/lite/delegates/gpu/common/"),
+    ] + ["//tensorflow/lite/delegates/gpu/common/mediapipe:custom_transformations"],
 )
 
 cc_library(

@@ -154,10 +154,11 @@ cc_test(
 
 cc_library(
     name = "custom_registry",
-    srcs = ["custom_registry.cc"],
+    srcs = ["//tensorflow/lite/delegates/gpu/gl/kernels/mediapipe:registry.cc"],
     hdrs = ["custom_registry.h"],
     deps = [
         "//tensorflow/lite/delegates/gpu/gl:node_shader",
+        "//tensorflow/lite/delegates/gpu/gl/kernels/mediapipe:all_custom_ops",
         "@com_google_absl//absl/container:flat_hash_map",
     ],
 )
