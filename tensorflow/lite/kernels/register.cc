@@ -351,6 +351,24 @@ BuiltinOpResolver::BuiltinOpResolver() {
             tflite::ops::custom::Register_AUDIO_SPECTROGRAM());
   AddCustom("TFLite_Detection_PostProcess",
             tflite::ops::custom::Register_DETECTION_POSTPROCESS());
+
+  AddCustom("MaxPoolingWithArgmax2D",
+            tflite::ops::custom::RegisterMaxPoolingWithArgmax2D());
+  AddCustom("MaxUnpooling2D",
+            tflite::ops::custom::RegisterMaxUnpooling2D());
+  AddCustom("Convolution2DTransposeBias",
+            tflite::ops::custom::RegisterConvolution2DTransposeBias());
+  
+  AddCustom("TransformTensorBilinear",
+            tflite::ops::custom::RegisterTransformTensorBilinear(),
+            /*version=*/2);
+  AddCustom("TransformLandmarks",
+            tflite::ops::custom::RegisterTransformLandmarks(),
+            /*version=*/2);
+  AddCustom("Landmarks2TransformMatrix",
+            tflite::ops::custom::RegisterLandmarks2TransformMatrix(),
+            /*version=*/2);
+            
   // By definition, all of the ops added above are not user-defined ops,
   // since they are supported by BuiltinOpResolver.
   may_directly_contain_user_defined_ops_ = false;
