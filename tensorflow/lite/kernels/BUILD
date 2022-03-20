@@ -728,6 +728,15 @@ cc_library(
         "@com_google_absl//absl/types:any",
         "@com_google_absl//absl/strings",
         "@FP16",
+        "//tensorflow/lite/delegates/gpu/common:model",
+        "//tensorflow/lite/delegates/gpu/common:model_builder_helper",
+        "//tensorflow/lite/delegates/gpu/common:model_transformer",
+        "//tensorflow/lite/delegates/gpu/common:object_reader",
+        "//tensorflow/lite/delegates/gpu/common:operation_parser",
+        "//tensorflow/lite/delegates/gpu/common:shape",
+        "//tensorflow/lite/delegates/gpu/common:status",
+        "//tensorflow/lite/delegates/gpu/common:tensor",
+        "//tensorflow/lite/delegates/gpu/common:types",
     ],
 )
 
