@@ -726,6 +726,7 @@ cc_library(
         "@farmhash_archive//:farmhash",
         "//third_party/fft2d:fft2d_headers",
         "@com_google_absl//absl/types:any",
+        "@com_google_absl//absl/strings",
         "@FP16",
     ],
 )
