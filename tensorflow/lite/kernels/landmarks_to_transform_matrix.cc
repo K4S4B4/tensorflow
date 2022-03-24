@@ -525,7 +525,7 @@ TfLiteStatus Eval(TfLiteContext* context, TfLiteNode* node) {
 
 }  // namespace
 
-TfLiteRegistration* RegisterLandmarksToTransformMatrixV1() {
+TfLiteRegistration* RegisterLandmarks2TransformMatrixV1() {
   static TfLiteRegistration reg = {
       /*.init=*/nullptr,
       /*.free=*/nullptr,
@@ -538,7 +538,7 @@ TfLiteRegistration* RegisterLandmarksToTransformMatrixV1() {
   };
   return &reg;
 }
-TfLiteRegistration* RegisterLandmarksToTransformMatrixV2() {
+TfLiteRegistration* RegisterLandmarks2TransformMatrixV2() {
   static TfLiteRegistration reg = {
       /*.init=*/nullptr,
       /*.free=*/nullptr,
