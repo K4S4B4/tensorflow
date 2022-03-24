@@ -16,6 +16,10 @@
 
 set -e
 
+wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
+python3 get-pip.py
+rm -f get-pip.py
+
 sudo pip3 install auditwheel==2.0.0
 
 # Pin wheel==0.31.1 to work around issue

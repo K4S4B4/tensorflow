@@ -17,8 +17,8 @@
 set -e
 
 # Get the latest version of pip so it recognize manylinux2010
-wget https://bootstrap.pypa.io/get-pip.py
-python3.6 get-pip.py
+wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
+python3 get-pip.py
 rm -f get-pip.py
 
 # Install pip packages from whl files to avoid the time-consuming process of
@@ -62,7 +62,8 @@ rm -rf /usr/lib/python3/dist-packages/six*
 if $(cat /etc/*-release | grep -q 14.04); then
   pip3 install --upgrade numpy==1.14.5
 else
-  pip3 install --upgrade numpy~=1.19.2
+  #pip3 install --upgrade numpy~=1.19.2
+  pip3 install numpy
 fi
 
 pip3 install scipy==1.4.1
@@ -79,7 +80,8 @@ pip3 install py-cpuinfo
 # pylint tests require the following version. pylint==1.6.4 hangs erratically,
 # thus using the updated version of 2.5.3 only for python3 as python2 is EOL
 # and this version is not available.
-pip3 install pylint==2.7.4
+#pip3 install pylint==2.7.4
+pip3 install pylint
 
 # pycodestyle tests require the following:
 pip3 install pycodestyle
@@ -97,7 +99,8 @@ pip3 install --upgrade termcolor
 # Keras
 pip3 install keras-nightly --no-deps
 pip3 install keras_preprocessing==1.1.0 --no-deps
-pip3 install --upgrade h5py==3.1.0
+#pip3 install --upgrade h5py==3.1.0
+pip3 install h5py
 
 # Estimator
 pip3 install tf-estimator-nightly --no-deps
@@ -109,7 +112,7 @@ pip3 install tb-nightly --no-deps
 pip3 install --upgrade argparse
 
 # tree
-pip3 install dm-tree
+# pip3 install dm-tree
 
 # tf.distribute multi worker tests require the following:
 # Those tests are Python3 only.
