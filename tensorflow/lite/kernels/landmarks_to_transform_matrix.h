@@ -21,9 +21,9 @@ namespace tflite {
 namespace ops {
 namespace custom {
 
-TfLiteRegistration* RegisterLandmarks2TransformMatrixV1();
+TfLiteRegistration* RegisterLandmarksToTransformMatrixV1();
 
-TfLiteRegistration* RegisterLandmarks2TransformMatrixV2();
+TfLiteRegistration* RegisterLandmarksToTransformMatrixV2();
 
 }  // namespace custom
 }  // namespace ops
