@@ -32,9 +32,9 @@ TfLiteRegistration* Register_DETECTION_POSTPROCESS();
 TfLiteRegistration* RegisterMaxPoolingWithArgmax2D();
 TfLiteRegistration* RegisterMaxUnpooling2D();
 TfLiteRegistration* RegisterConvolution2DTransposeBias();
-TfLiteRegistration* RegisterTransformTensorBilinear();
-TfLiteRegistration* RegisterTransformLandmarks();
-TfLiteRegistration* RegisterLandmarks2TransformMatrix();
+TfLiteRegistration* RegisterTransformTensorBilinearV2();
+TfLiteRegistration* RegisterTransformLandmarksV2();
+TfLiteRegistration* RegisterLandmarksToTransformMatrixV2();
 
 }  // namespace custom
 
@@ -513,13 +513,13 @@ BuiltinRefOpResolver::BuiltinRefOpResolver() {
             tflite::ops::custom::RegisterConvolution2DTransposeBias());
 
   AddCustom("TransformTensorBilinear",
-            tflite::ops::custom::RegisterTransformTensorBilinear(),
+            tflite::ops::custom::RegisterTransformTensorBilinearV2(),
             /*version=*/2);
   AddCustom("TransformLandmarks",
-            tflite::ops::custom::RegisterTransformLandmarks(),
+            tflite::ops::custom::RegisterTransformLandmarksV2(),
             /*version=*/2);
   AddCustom("Landmarks2TransformMatrix",
-            tflite::ops::custom::RegisterLandmarks2TransformMatrix(),
+            tflite::ops::custom::RegisterLandmarksToTransformMatrixV2(),
             /*version=*/2);
 }
 
