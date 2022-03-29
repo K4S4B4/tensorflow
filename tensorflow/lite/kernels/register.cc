@@ -29,6 +29,13 @@ TfLiteRegistration* Register_AUDIO_SPECTROGRAM();
 TfLiteRegistration* Register_MFCC();
 TfLiteRegistration* Register_DETECTION_POSTPROCESS();
 
+TfLiteRegistration* RegisterMaxPoolingWithArgmax2D();
+TfLiteRegistration* RegisterMaxUnpooling2D();
+TfLiteRegistration* RegisterConvolution2DTransposeBias();
+TfLiteRegistration* RegisterTransformTensorBilinearV2();
+TfLiteRegistration* RegisterTransformLandmarksV2();
+TfLiteRegistration* RegisterLandmarksToTransformMatrixV2();
+
 }  // namespace custom
 
 namespace builtin {
@@ -345,6 +352,22 @@ BuiltinOpResolver::BuiltinOpResolver() {
             tflite::ops::custom::Register_AUDIO_SPECTROGRAM());
   AddCustom("TFLite_Detection_PostProcess",
             tflite::ops::custom::Register_DETECTION_POSTPROCESS());
+
+  AddCustom("MaxPoolingWithArgmax2D",
+            tflite::ops::custom::RegisterMaxPoolingWithArgmax2D());
+  AddCustom("MaxUnpooling2D", tflite::ops::custom::RegisterMaxUnpooling2D());
+  AddCustom("Convolution2DTransposeBias",
+            tflite::ops::custom::RegisterConvolution2DTransposeBias());
+  AddCustom("TransformTensorBilinear",
+            tflite::ops::custom::RegisterTransformTensorBilinearV2(),
+            /*version=*/2);
+  AddCustom("TransformLandmarks",
+            tflite::ops::custom::RegisterTransformLandmarksV2(),
+            /*version=*/2);
+  AddCustom("Landmarks2TransformMatrix",
+            tflite::ops::custom::RegisterLandmarksToTransformMatrixV2(),
+            /*version=*/2);
+
   // By definition, all of the ops added above are not user-defined ops,
   // since they are supported by BuiltinOpResolver.
   may_directly_contain_user_defined_ops_ = false;
